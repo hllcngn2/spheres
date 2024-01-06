@@ -14,12 +14,12 @@ int*** map =newmap();
 printw("\n\tDear darkmage,\n");getch();
 test_colors(scr);dispscreen(scr);mvprintw(1,2,"colors test");getch();
 
-drawdotellipse(map,10,20,35,14,10);
-
-int x =0;
-int y =0;
-int z =0;
+vect3 pos =(vect3){WIDTH/2,HEIGHT/2,DEPTH/2};
 int facing =FRONT;
+
+//drawdotverticalcircle(map,10,20,x+35,y+14,z+10);
+vect3 maj={10,5,12}, min={10,10,10};
+drawdot3dellipse(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},maj,min);
 
 char c=0; do{
 switch(c){
@@ -32,14 +32,14 @@ case K_UP_RIGHT:
 case K_DOWN_LEFT:
 case K_DOWN_RIGHT:
 case K_FORWARD:
-case K_BACKWARD:	movement(c,&x,&y,&z);	break;
+case K_BACKWARD:	movement(c,&pos);	break;
 case K_DEBUG:		f.debug =(f.debug?0:1);	break;
 default:	break;}
 
-drawscreen(scr,map,x,y,z,facing);
+drawscreen(scr,map,pos,facing);
 dispscreen(scr);
 refresh();
-if(f.debug) drawdebug(x,y,z);
+if(f.debug) drawdebug(pos);
 }while((c=getch())!=K_QUIT);
 
 freescreen(scr);

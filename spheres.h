@@ -26,23 +26,26 @@
 #define DOWN 6
 
 typedef struct{
-	int debug;
-}Flags;
-void drawdebug(int x,int y,int z);
+	int x,y,z; }vect3;
+
+typedef struct{
+	int debug; }Flags;
+void drawdebug(vect3 pos);
 
 void make_colors(void);
 void test_colors(int**);
 
 int** newscreen(void);
-void drawscreen(int** scr,int*** map,int x,int y,int z,int facing);
+void drawscreen(int** scr,int*** map,vect3 pos,int facing);
 void dispscreen(int**);
 void freescreen(int**);
 
 int*** newmap(void);
 void freemap(int***);
 
-void drawdotellipse(int*** map,int cp,int radius,int x,int y,int z);
+void drawdotverticalcircle(int*** map,int cp,vect3 center,int radius);
+void drawdot3dellipse(int ***map,int cp, vect3 center,vect3 maj,vect3 min);
 
-void movement(char c,int* x,int* y,int* z);
+void movement(char c,vect3* pos);
 
 #endif

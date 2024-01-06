@@ -13,12 +13,12 @@ void freescreen(int** scr){
 for(int y=0; y<LINES; y++) free(scr[y]);
 free(scr);	return;}
 
-void drawscreen(int** scr,int*** map,int x,int y,int z,int facing){
+void drawscreen(int** scr,int*** map,vect3 pos,int facing){
 //FRONT
 for(int yy=0; yy<LINES; yy++)
 	for(int xx=0; xx<COLS/2; xx++){
-		int zz; for(zz=z; zz<DEPTH-1 && !map[zz][y+yy][x+xx]; zz++);
-		scr[yy][xx] =map[zz][y+yy][x+xx];}
+		int zz; for(zz=pos.z; zz<DEPTH-1 && !map[zz][pos.y+yy][pos.x+xx]; zz++);
+		scr[yy][xx] =map[zz][pos.y+yy][pos.x+xx];}
 return;}
 
 void dispscreen(int** scr){

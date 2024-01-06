@@ -1,1 +1,6 @@
 - pixel width * 2
+
+colors:
+//slime
+//rainbow
+//nice pink
