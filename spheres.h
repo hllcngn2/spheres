@@ -27,6 +27,8 @@
 
 typedef struct{
 	int x,y,z; }vect3;
+typedef struct{
+	float x,y,z; }vect3f;
 
 typedef struct{
 	int debug; }Flags;
@@ -45,6 +47,10 @@ void freemap(int***);
 
 void drawdotverticalcircle(int*** map,int cp,vect3 center,int radius);
 void drawdot3dellipse(int ***map,int cp, vect3 center,vect3 maj,vect3 min);
+void drawdot3dcircle(int ***map,int cp, vect3 center,int radius,
+		vect3 a, vect3 b);
+vect3 drawrandom3dcircle(int ***map,int cp,int radius);
+void drawmanycircles(int ***map,int n,int radius);
 
 void movement(char c,vect3* pos);
 

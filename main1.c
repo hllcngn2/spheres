@@ -1,10 +1,13 @@
 #include <ncurses.h>
+#include <stdlib.h>//rand
+#include <time.h>
 #include "spheres.h"
 
 int main(int ac, char **av){
 initscr();
 noecho(); cbreak(); curs_set(0);
 start_color();
+srand(time(NULL));
 
 make_colors();
 Flags f; f.debug =0;
@@ -18,8 +21,11 @@ vect3 pos =(vect3){WIDTH/2,HEIGHT/2,DEPTH/2};
 int facing =FRONT;
 
 //drawdotverticalcircle(map,10,20,x+35,y+14,z+10);
-vect3 maj={10,5,12}, min={10,10,10};
-drawdot3dellipse(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},maj,min);
+//vect3 maj={10,5,12}, min={10,10,10};
+//drawdot3dellipse(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},maj,min);
+//vect3 a={10,50,12}, b={10,10,80};
+//drawdot3dcircle(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},10,a,b);
+drawmanycircles(map,40,20);
 
 char c=0; do{
 switch(c){
