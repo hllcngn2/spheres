@@ -25,7 +25,7 @@ int facing =FRONT;
 //drawdot3dellipse(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},maj,min);
 //vect3 a={10,50,12}, b={10,10,80};
 //drawdot3dcircle(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},10,a,b);
-drawmanycircles(map,40,20);
+drawmanycircles(map,1);
 
 char c=0; do{
 switch(c){

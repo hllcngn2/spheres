@@ -16,17 +16,21 @@ free(scr);	return;}
 void drawscreen(int** scr,int*** map,vect3 pos,int facing){
 switch(facing){
 case FRONT:
-	for(int yy=0; yy<LINES; yy++)
-	for(int xx=0; xx<COLS/2; xx++){
-		int zz;
-		for(zz=pos.z;zz<DEPTH-1&&!map[zz][pos.y+yy][pos.x+xx];zz++);
-		scr[yy][xx] =map[zz][pos.y+yy][pos.x+xx];}	break;
+	for(int yy=-LINES/2; yy<(LINES+1)/2; yy++)
+	for(int xx=-COLS/4; xx<(COLS+2)/4; xx++){
+		int zz; for(zz=0;
+			zz<HORIZON &&!map[pos.z+zz][pos.y+yy][pos.x+xx];
+			zz++);
+		scr[yy][xx] =map[pos.z+zz][pos.y+yy][pos.x+xx];}
+	break;
 case BACK:
+	/*
 	for(int yy=0; yy<LINES; yy++)
 	for(int xx=0; xx<COLS/2; xx++){
 		int zz;
 		for(zz=pos.z;zz>1&&!map[zz][pos.y+yy][pos.x+xx];zz--);
 		scr[yy][xx] =map[zz][pos.y+yy][pos.x+xx];}	break;
+		*/
 case LEFT:
 	/*
 todo: change coordinates to exact ship location

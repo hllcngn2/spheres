@@ -13,6 +13,6 @@ return new;}
 
 void freemap(int*** map){
 for(int z=0; z<DEPTH; z++){
-	for(int y=0; y<LINES; y++) free(map[z][y]);
+	for(int y=0; y<HEIGHT; y++) free(map[z][y]);
 	free(map[z]);}
 free(map);	return;}

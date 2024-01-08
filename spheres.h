@@ -1,9 +1,13 @@
 #ifndef SPHERES_H
 #define SPHERES_H
+#include <ncurses.h>
 
-#define DEPTH 200
-#define HEIGHT 200
-#define WIDTH 200
+#define DEPTH 500
+#define HEIGHT 500
+#define WIDTH 500
+#define RADIUS 30
+#define SPHERES_MARGIN (RADIUS+40)
+#define HORIZON 100
 
 #define K_QUIT '1'
 #define K_DEBUG '2'
@@ -54,12 +58,9 @@ void freescreen(int**);
 int*** newmap(void);
 void freemap(int***);
 
-void drawdotverticalcircle(int*** map,int cp,vect3 center,int radius);
-void drawdot3dellipse(int ***map,int cp, vect3 center,vect3 maj,vect3 min);
-void drawdot3dcircle(int ***map,int cp, vect3 center,int radius,
-		vect3 a, vect3 b);
-vect3 drawrandom3dcircle(int ***map,int cp,int radius);
-void drawmanycircles(int ***map,int n,int radius);
+void drawdot3dcircle(int ***map,int cp, vect3 center,vect3f a, vect3f b);
+vect3 drawrandom3dcircle(int ***map,int cp);
+void drawmanycircles(int ***map,int n);
 
 void movement(char c,vect3* pos);
 void turn(char c,int *facing);
