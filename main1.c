@@ -39,13 +39,19 @@ case K_DOWN_LEFT:
 case K_DOWN_RIGHT:
 case K_FORWARD:
 case K_BACKWARD:	movement(c,&pos);	break;
+case K_FACE_FRONT:
+case K_FACE_BACK:
+case K_FACE_LEFT:
+case K_FACE_RIGHT:
+case K_FACE_UP:
+case K_FACE_DOWN:	turn(c,&facing);	break;
 case K_DEBUG:		f.debug =(f.debug?0:1);	break;
 default:	break;}
 
 drawscreen(scr,map,pos,facing);
 dispscreen(scr);
 refresh();
-if(f.debug) drawdebug(pos);
+if(f.debug) drawdebug(pos,facing);
 }while((c=getch())!=K_QUIT);
 
 freescreen(scr);

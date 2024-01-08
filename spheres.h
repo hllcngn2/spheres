@@ -7,6 +7,7 @@
 
 #define K_QUIT '1'
 #define K_DEBUG '2'
+
 #define K_LEFT 'a'
 #define K_RIGHT 'd'
 #define K_UP 'w'
@@ -15,8 +16,16 @@
 #define K_UP_RIGHT 'e'
 #define K_DOWN_LEFT 'z'
 #define K_DOWN_RIGHT 'x'
+
 #define K_FORWARD 'r'
 #define K_BACKWARD 'c'
+
+#define K_FACE_FRONT 'o'
+#define K_FACE_BACK 'l'
+#define K_FACE_LEFT 'k'
+#define K_FACE_RIGHT ';'
+#define K_FACE_UP 'p'
+#define K_FACE_DOWN '.'
 
 #define FRONT 1
 #define BACK 2
@@ -32,7 +41,7 @@ typedef struct{
 
 typedef struct{
 	int debug; }Flags;
-void drawdebug(vect3 pos);
+void drawdebug(vect3 pos,int facing);
 
 void make_colors(void);
 void test_colors(int**);
@@ -53,5 +62,6 @@ vect3 drawrandom3dcircle(int ***map,int cp,int radius);
 void drawmanycircles(int ***map,int n,int radius);
 
 void movement(char c,vect3* pos);
+void turn(char c,int *facing);
 
 #endif
