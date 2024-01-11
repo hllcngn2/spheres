@@ -20,12 +20,7 @@ test_colors(scr);dispscreen(scr);mvprintw(1,2,"colors test");getch();
 vect3 pos =(vect3){WIDTH/2,HEIGHT/2,DEPTH/2};
 int facing =FRONT;
 
-//drawdotverticalcircle(map,10,20,x+35,y+14,z+10);
-//vect3 maj={10,5,12}, min={10,10,10};
-//drawdot3dellipse(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},maj,min);
-//vect3 a={10,50,12}, b={10,10,80};
-//drawdot3dcircle(map,10,(vect3){pos.x+35,pos.y+14,pos.z+10},10,a,b);
-drawmanycircles(map,1);
+drawmanycircles(map,25);
 
 char c=0; do{
 switch(c){
@@ -49,6 +44,7 @@ case K_DEBUG:		f.debug =(f.debug?0:1);	break;
 default:	break;}
 
 drawscreen(scr,map,pos,facing);
+//printw("debug x");getch();
 dispscreen(scr);
 refresh();
 if(f.debug) drawdebug(pos,facing);

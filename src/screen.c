@@ -16,12 +16,14 @@ free(scr);	return;}
 void drawscreen(int** scr,int*** map,vect3 pos,int facing){
 switch(facing){
 case FRONT:
-	for(int yy=-LINES/2; yy<(LINES+1)/2; yy++)
-	for(int xx=-COLS/4; xx<(COLS+2)/4; xx++){
+	//TODO: account for lines outside of the map
+	for(int yy=-LINES/2; yy<(LINES+1)/2-1; yy++)
+	for(int xx=-COLS/4; xx<(COLS+2)/4-1; xx++){
 		int zz; for(zz=0;
-			zz<HORIZON &&!map[pos.z+zz][pos.y+yy][pos.x+xx];
+			zz<HORIZON &&zz<DEPTH-pos.z
+			&&!map[pos.z+zz][pos.y+yy][pos.x+xx];
 			zz++);
-		scr[yy][xx] =map[pos.z+zz][pos.y+yy][pos.x+xx];}
+		scr[yy+LINES/2][xx+COLS/4] =map[pos.z+zz][pos.y+yy][pos.x+xx];}
 	break;
 case BACK:
 	/*

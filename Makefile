@@ -1,2 +1,8 @@
 1:
-	gcc main1.c screen.c map.c mech.c debug.c colors.c ellipse.c -I. -lncurses -oSpheres
+	gcc	src/main1.c \
+		src/screen.c \
+		src/map.c \
+		src/mech.c \
+		src/colors.c \
+		src/ellipse.c \
+		src/debug.c	-I. -lncurses -ospheres

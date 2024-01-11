@@ -5,7 +5,7 @@
 #define DEPTH 500
 #define HEIGHT 500
 #define WIDTH 500
-#define RADIUS 30
+#define RADIUS 20
 #define SPHERES_MARGIN (RADIUS+40)
 #define HORIZON 100
 

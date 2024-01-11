@@ -1,6 +1,6 @@
-- pixel width * 2
+V pixel width * 2
 
 colors:
-//slime
-//rainbow
-//nice pink
+slime
+rainbow
+nice pink

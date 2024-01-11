@@ -31,11 +31,6 @@ vect3f ub =(vect3f){b.x/nb,b.y/nb,b.z/nb};
 int n =100;
 float t =2*M_PI;
 int x,y,z;
-printw("consts WIDTH=%i,HEIGHT=%i,DEPTH=%i,SPHERES_MARGIN=%i",WIDTH,HEIGHT,DEPTH,SPHERES_MARGIN);
-printw("SPHERES_MARGIN*2=%i",(SPHERES_MARGIN)*2);
-printw("DEPTH-SPHERES_MARGIN*2=%i",DEPTH-SPHERES_MARGIN*2);
-printw("DEPTH-((SPHERES_MARGIN)*2)=%i",DEPTH-((SPHERES_MARGIN)*2));
-printw("debug center x=%i,y=%i,z=%i", center.x,center.y,center.z);getch();
 for(int i=0;i<n;i++){
 	t -=2*M_PI/n;
 	x =(int)(cosf(t)*(float)RADIUS*ua.x
@@ -44,7 +39,5 @@ for(int i=0;i<n;i++){
 		+sinf(t)*(float)RADIUS*ub.y +center.y);
 	z =(int)(cosf(t)*(float)RADIUS*ua.z
 		+sinf(t)*(float)RADIUS*ub.z +center.z);
-//printw("debug x=%i,y=%i,z=%i", x,y,z);getch();
 	map[z][y][x] =cp;}
-printw("debug x");getch();
 return;}
