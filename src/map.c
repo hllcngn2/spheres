@@ -1,6 +1,5 @@
 #include <ncurses.h>//LINES/COLS,WINDOW
 #include <stdlib.h>//malloc/free
-#include <string.h>//memcpy
 #include "spheres.h"
 
 int*** newmap(void){
@@ -13,6 +12,7 @@ return new;}
 
 void freemap(int*** map){
 for(int z=0; z<DEPTH; z++){
-	for(int y=0; y<HEIGHT; y++) free(map[z][y]);
+	for(int y=0; y<HEIGHT; y++)
+		free(map[z][y]);
 	free(map[z]);}
 free(map);	return;}

@@ -14,6 +14,7 @@ for(int i=0;i<n;i++){
 }
 return;}
 
+
 vect3 drawrandom3dcircle(int ***map,int cp){
 vect3 center =(vect3){rand()%(WIDTH-SPHERES_MARGIN*2)+SPHERES_MARGIN,
 			rand()%(HEIGHT-SPHERES_MARGIN*2)+SPHERES_MARGIN,
@@ -22,6 +23,7 @@ vect3f a =(vect3f){rand()%101,rand()%101,rand()%101};
 vect3f b =(vect3f){rand()%101,rand()%101,rand()%101};
 drawdot3dcircle(map,cp,center,a,b);
 return center;}
+
 
 void drawdot3dcircle(int ***map,int cp, vect3 center,vect3f a, vect3f b){
 float na =sqrt(a.x*a.x+a.y*a.y+a.z*a.z);

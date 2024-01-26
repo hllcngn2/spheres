@@ -4,23 +4,24 @@
 #include "spheres.h"
 
 int main(int ac, char **av){
+srand(time(NULL));
 initscr();
 noecho(); cbreak(); curs_set(0);
 start_color();
-srand(time(NULL));
 
 make_colors();
-Flags f; f.debug =0;
 int** scr =newscreen();
-int*** map =newmap();
 
 printw("\n\tDear darkmage,\n");getch();
 test_colors(scr);dispscreen(scr);mvprintw(1,2,"colors test");getch();
 
+int*** map =newmap();
+drawmanycircles(map,25);
+
 vect3 pos =(vect3){WIDTH/2,HEIGHT/2,DEPTH/2};
 int facing =FRONT;
 
-drawmanycircles(map,25);
+Flags f; f.debug =0;
 
 char c=0; do{
 switch(c){
@@ -44,9 +45,7 @@ case K_DEBUG:		f.debug =(f.debug?0:1);	break;
 default:	break;}
 
 drawscreen(scr,map,pos,facing);
-//printw("debug x");getch();
-dispscreen(scr);
-refresh();
+dispscreen(scr); refresh();
 if(f.debug) drawdebug(pos,facing);
 }while((c=getch())!=K_QUIT);
 

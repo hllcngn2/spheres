@@ -1,6 +1,5 @@
 #include <ncurses.h>//LINES/COLS,WINDOW
 #include <stdlib.h>//malloc/free
-#include <string.h>//memcpy
 #include "spheres.h"
 
 int** newscreen(void){
@@ -10,29 +9,41 @@ for(int y=0; y<LINES; y++)
 return new;}
 
 void freescreen(int** scr){
-for(int y=0; y<LINES; y++) free(scr[y]);
+for(int y=0; y<LINES; y++)
+	free(scr[y]);
 free(scr);	return;}
+
+void dispscreen(int** scr){
+for(int y=0; y<LINES; y++){
+	move(y,0);
+	for(int x=0; x<COLS/2; x++){
+		attron(COLOR_PAIR(scr[y][x]));
+		addch(' ');addch(' ');
+		attroff(COLOR_PAIR(scr[y][x]));}}
+attron(COLOR_PAIR(0));	return;}
+
 
 void drawscreen(int** scr,int*** map,vect3 pos,int facing){
 switch(facing){
 case FRONT:
-	//TODO: account for lines outside of the map
+	//TODO: account for lines outside of the map?
 	for(int yy=-LINES/2; yy<(LINES+1)/2-1; yy++)
 	for(int xx=-COLS/4; xx<(COLS+2)/4-1; xx++){
 		int zz; for(zz=0;
-			zz<HORIZON &&zz<DEPTH-pos.z
+			zz <HORIZON && zz <DEPTH-pos.z
 			&&!map[pos.z+zz][pos.y+yy][pos.x+xx];
-			zz++);
+				zz++);
 		scr[yy+LINES/2][xx+COLS/4] =map[pos.z+zz][pos.y+yy][pos.x+xx];}
 	break;
 case BACK:
-	/*
-	for(int yy=0; yy<LINES; yy++)
-	for(int xx=0; xx<COLS/2; xx++){
-		int zz;
-		for(zz=pos.z;zz>1&&!map[zz][pos.y+yy][pos.x+xx];zz--);
-		scr[yy][xx] =map[zz][pos.y+yy][pos.x+xx];}	break;
-		*/
+	for(int yy=-LINES/2; yy<(LINES+1)/2-1; yy++)
+	for(int xx=-COLS/4; xx<(COLS+2)/4-1; xx++){
+		int zz; for(zz=0;
+			zz <HORIZON && zz <pos.z
+			&&!map[pos.z-zz][pos.y+yy][pos.x+xx];
+				zz++);
+		scr[yy+LINES/2][xx+COLS/4] =map[pos.z-zz][pos.y+yy][pos.x+xx];}
+	break;
 case LEFT:
 	/*
 todo: change coordinates to exact ship location
@@ -49,12 +60,3 @@ case UP:
 case DOWN:
 default:	break;}
 return;}
-
-void dispscreen(int** scr){
-for(int y=0; y<LINES; y++){
-	move(y,0);
-	for(int x=0; x<COLS/2; x++){
-		attron(COLOR_PAIR(scr[y][x]));
-		addch(' ');addch(' ');
-		attroff(COLOR_PAIR(scr[y][x]));}}
-attron(COLOR_PAIR(0));	return;}
