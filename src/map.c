@@ -3,11 +3,11 @@
 #include "spheres.h"
 
 int*** newmap(void){
-int*** new =(int***)malloc(sizeof(int**)*DEPTH);
-for(int z=0; z<DEPTH; z++){
-	new[z] =(int**)malloc(sizeof(int*)*HEIGHT);
-	for(int y=0; y<HEIGHT; y++)
-		new[z][y] =(int*)calloc(WIDTH,sizeof(int));}
+int*** new =(int***)malloc(sizeof(int**)*DEPTH+1);
+for(int z=0; z<=DEPTH; z++){
+	new[z] =(int**)malloc(sizeof(int*)*HEIGHT+1);
+	for(int y=0; y<=HEIGHT; y++)
+		new[z][y] =(int*)calloc(WIDTH+1,sizeof(int));}
 return new;}
 
 void freemap(int*** map){
