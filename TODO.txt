@@ -1,5 +1,11 @@
 V pixel width * 2
 
+todo:	V change coordinates to exact ship location
+	V adjust displaying
+	make for temp variables coherent to what they actually represent
+modify movement direction based on facing direction
+turn camera differently based on facing direction - ex left - up vs right - up (maybe relative direction change)
+
 colors:
 slime
 rainbow
