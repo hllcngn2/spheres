@@ -16,7 +16,7 @@ printw("\n\tDear darkmage,\n");getch();
 test_colors(scr);dispscreen(scr);mvprintw(1,2,"colors test");getch();
 
 int*** map =newmap();
-drawmanycircles(map,25);
+drawmanyspheres(map,SPHERES_COUNT);
 
 vect3 pos =(vect3){WIDTH/2,HEIGHT/2,DEPTH/2};
 int facing =FRONT;
@@ -38,9 +38,7 @@ case K_BACKWARD:	movement(c,&pos);	break;
 case K_FACE_FRONT:
 case K_FACE_BACK:
 case K_FACE_LEFT:
-case K_FACE_RIGHT:
-case K_FACE_UP:
-case K_FACE_DOWN:	turn(c,&facing);	break;
+case K_FACE_RIGHT:	turn(c,&facing);	break;
 case K_DEBUG:		f.debug =(f.debug?0:1);	break;
 default:	break;}
 

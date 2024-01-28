@@ -4,5 +4,7 @@
 		src/map.c \
 		src/mech.c \
 		src/colors.c \
-		src/ellipse.c \
+		src/circle.c \
 		src/debug.c	-I. -lncurses -ospheres
+clean:
+	rm spheres.exe spheres.exe.stackdump

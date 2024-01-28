@@ -40,7 +40,14 @@ case FRONT:
 				&&!map[pos.z+zz][pos.y+yy][pos.x+xx];
 					zz++);
 			scr[yy+LINES/2][xx+COLS/4]
-				=map[pos.z+zz][pos.y+yy][pos.x+xx];}
+				=map[pos.z+zz][pos.y+yy][pos.x+xx];
+			if (scr[yy+LINES/2][xx+COLS/4]){
+				if (zz >HORIZON*4/5)
+					scr[yy+LINES/2][xx+COLS/4] +=3;
+				else if (zz >HORIZON*2/3)
+					scr[yy+LINES/2][xx+COLS/4] +=2;
+				else if (zz >HORIZON*1/2)
+					scr[yy+LINES/2][xx+COLS/4] +=1;}}
 		for (xx; xx<(COLS+2)/4-1; xx++)
 			scr[yy+LINES/2][xx+COLS/4] =0;}
 	break;
@@ -55,7 +62,14 @@ case BACK:
 				&&!map[pos.z-zz][pos.y+yy][pos.x+xx];
 					zz++);
 			scr[yy+LINES/2][xx+COLS/4]
-				=map[pos.z-zz][pos.y+yy][pos.x+xx];}
+				=map[pos.z-zz][pos.y+yy][pos.x+xx];
+			if (scr[yy+LINES/2][xx+COLS/4]){
+				if (zz >HORIZON*4/5)
+					scr[yy+LINES/2][xx+COLS/4] +=3;
+				else if (zz >HORIZON*2/3)
+					scr[yy+LINES/2][xx+COLS/4] +=2;
+				else if (zz >HORIZON*1/2)
+					scr[yy+LINES/2][xx+COLS/4] +=1;}}
 		for (xx; xx<(COLS+2)/4-1; xx++)
 			scr[yy+LINES/2][xx+COLS/4] =0;}
 	break;
@@ -70,7 +84,14 @@ case LEFT:
 				&&!map[pos.z+zz][pos.y+yy][pos.x-xx];
 					xx++);
 			scr[yy+LINES/2][zz+COLS/4]
-				=map[pos.z+zz][pos.y+yy][pos.x-xx];}
+				=map[pos.z+zz][pos.y+yy][pos.x-xx];
+			if (scr[yy+LINES/2][zz+COLS/4]){
+				if (xx >HORIZON*4/5)
+					scr[yy+LINES/2][zz+COLS/4] +=3;
+				else if (xx >HORIZON*2/3)
+					scr[yy+LINES/2][zz+COLS/4] +=2;
+				else if (xx >HORIZON*1/2)
+					scr[yy+LINES/2][zz+COLS/4] +=1;}}
 		for (zz; zz<(COLS+2)/4-1; zz++)
 			scr[yy+LINES/2][zz+COLS/4] =0;}
 	break;
@@ -85,7 +106,14 @@ case RIGHT:
 				&&!map[pos.z+zz][pos.y+yy][pos.x+xx];
 					xx++);
 			scr[yy+LINES/2][zz+COLS/4]
-				=map[pos.z+zz][pos.y+yy][pos.x+xx];}
+				=map[pos.z+zz][pos.y+yy][pos.x+xx];
+			if (scr[yy+LINES/2][zz+COLS/4]){
+				if (xx >HORIZON*4/5)
+					scr[yy+LINES/2][zz+COLS/4] +=3;
+				else if (xx >HORIZON*2/3)
+					scr[yy+LINES/2][zz+COLS/4] +=2;
+				else if (xx >HORIZON*1/2)
+					scr[yy+LINES/2][zz+COLS/4] +=1;}}
 		for (zz; zz<(COLS+2)/4-1; zz++)
 			scr[yy+LINES/2][zz+COLS/4] =0;}
 	break;

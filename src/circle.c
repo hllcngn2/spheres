@@ -2,25 +2,28 @@
 #include <stdlib.h>//rand
 #include "spheres.h"
 
-void drawmanycircles(int ***map,int n){
+void drawmanyspheres(int ***map,int n){
 for(int i=0;i<n;i++){
 	int cp =rand()%3;
 	switch(cp){
-	case 0: cp =1; break; //red
+	case 0: cp =1;  break; //red
 	case 1: cp =10; break; //cyan
 	case 2: cp =20; break; //white
 	default: break;}
-	drawrandom3dcircle(map,cp);
+	drawrandomsphere(map,cp);
 }
 return;}
 
 
-vect3 drawrandom3dcircle(int ***map,int cp){
+vect3 drawrandomsphere(int ***map,int cp){
 vect3 center =(vect3){rand()%(WIDTH-SPHERES_MARGIN*2)+SPHERES_MARGIN,
 			rand()%(HEIGHT-SPHERES_MARGIN*2)+SPHERES_MARGIN,
 			rand()%(DEPTH-SPHERES_MARGIN*2)+SPHERES_MARGIN};
 vect3f a =(vect3f){rand()%101,rand()%101,rand()%101};
 vect3f b =(vect3f){rand()%101,rand()%101,rand()%101};
+drawdot3dcircle(map,cp,center,a,b);
+a =(vect3f){rand()%101,rand()%101,rand()%101};
+b =(vect3f){rand()%101,rand()%101,rand()%101};
 drawdot3dcircle(map,cp,center,a,b);
 return center;}
 

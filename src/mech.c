@@ -28,7 +28,5 @@ case K_FACE_FRONT:	*facing =FRONT;		break;
 case K_FACE_BACK:	*facing =BACK;		break;
 case K_FACE_LEFT:	*facing =LEFT;		break;
 case K_FACE_RIGHT:	*facing =RIGHT;		break;
-case K_FACE_UP:		*facing =UP;		break;
-case K_FACE_DOWN:	*facing =DOWN;		break;
 default:	break;}
 return;}

@@ -2,11 +2,19 @@ V pixel width * 2
 
 todo:	V change coordinates to exact ship location
 	V adjust displaying
-	make for temp variables coherent to what they actually represent
-modify movement direction based on facing direction
-turn camera differently based on facing direction - ex left - up vs right - up (maybe relative direction change)
+	V make for temp variables coherent to what they actually represent
+X modify movement direction based on facing direction
+X turn camera differently based on facing direction - ex left - up vs right - up (maybe relative direction change)
+
+keep spheres centers in memory in order to generate them apart from one another
+V distance color shading
+map rotation
+change map cells from int to char to save memory
 
 colors:
 slime
 rainbow
 nice pink
+
+todo if I'm bored:
+better circles
