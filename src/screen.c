@@ -23,7 +23,7 @@ for(int y=0; y<LINES; y++){
 attron(COLOR_PAIR(0));	return;}
 
 
-void drawscreen(int** scr,int*** map,vect3 pos,int facing){
+void drawscreen(int** scr,char*** map,vect3 pos,int facing){
 int yy=-LINES/2;
 for (yy; pos.y+yy<0; yy++) 
 	for (int x=-COLS/4; x<(COLS+2)/4-1; x++)
@@ -40,7 +40,7 @@ case FRONT:
 				&&!map[pos.z+zz][pos.y+yy][pos.x+xx];
 					zz++);
 			scr[yy+LINES/2][xx+COLS/4]
-				=map[pos.z+zz][pos.y+yy][pos.x+xx];
+				=(int)map[pos.z+zz][pos.y+yy][pos.x+xx];
 			if (scr[yy+LINES/2][xx+COLS/4]){
 				if (zz >HORIZON*4/5)
 					scr[yy+LINES/2][xx+COLS/4] +=3;
@@ -62,7 +62,7 @@ case BACK:
 				&&!map[pos.z-zz][pos.y+yy][pos.x+xx];
 					zz++);
 			scr[yy+LINES/2][xx+COLS/4]
-				=map[pos.z-zz][pos.y+yy][pos.x+xx];
+				=(int)map[pos.z-zz][pos.y+yy][pos.x+xx];
 			if (scr[yy+LINES/2][xx+COLS/4]){
 				if (zz >HORIZON*4/5)
 					scr[yy+LINES/2][xx+COLS/4] +=3;
@@ -84,7 +84,7 @@ case LEFT:
 				&&!map[pos.z+zz][pos.y+yy][pos.x-xx];
 					xx++);
 			scr[yy+LINES/2][zz+COLS/4]
-				=map[pos.z+zz][pos.y+yy][pos.x-xx];
+				=(int)map[pos.z+zz][pos.y+yy][pos.x-xx];
 			if (scr[yy+LINES/2][zz+COLS/4]){
 				if (xx >HORIZON*4/5)
 					scr[yy+LINES/2][zz+COLS/4] +=3;
@@ -106,7 +106,7 @@ case RIGHT:
 				&&!map[pos.z+zz][pos.y+yy][pos.x+xx];
 					xx++);
 			scr[yy+LINES/2][zz+COLS/4]
-				=map[pos.z+zz][pos.y+yy][pos.x+xx];
+				=(int)map[pos.z+zz][pos.y+yy][pos.x+xx];
 			if (scr[yy+LINES/2][zz+COLS/4]){
 				if (xx >HORIZON*4/5)
 					scr[yy+LINES/2][zz+COLS/4] +=3;

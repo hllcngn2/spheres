@@ -1,3 +1,14 @@
+TODO.txt - Spheres
+Step 1:  World mechanics
+The base idea was to have spheres and move around. That's now complete except for no-overlap spheres generation, and extra fancy movement options. (and smoother circles) (and colors)  <-- todo: polish this:
+		- fix ellipses in place of circles
+		- colors
+		- no overlap?
+		- fancy movement?
+Step 2:
+Inventories & polishing (inc menus), saving
+		- keep track of centers
+
 V pixel width * 2
 
 todo:	V change coordinates to exact ship location
@@ -9,7 +20,8 @@ X turn camera differently based on facing direction - ex left - up vs right - up
 keep spheres centers in memory in order to generate them apart from one another
 V distance color shading
 map rotation
-change map cells from int to char to save memory
+V change map cells from int to char to save memory
+fix ellipses instead of circles
 
 colors:
 slime

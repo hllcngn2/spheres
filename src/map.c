@@ -2,15 +2,15 @@
 #include <stdlib.h>//malloc/free
 #include "spheres.h"
 
-int*** newmap(void){
-int*** new =(int***)malloc(sizeof(int**)*DEPTH+1);
+char*** newmap(void){
+char*** new =(char***)malloc(sizeof(char**)*DEPTH+1);
 for(int z=0; z<=DEPTH; z++){
-	new[z] =(int**)malloc(sizeof(int*)*HEIGHT+1);
+	new[z] =(char**)malloc(sizeof(char*)*HEIGHT+1);
 	for(int y=0; y<=HEIGHT; y++)
-		new[z][y] =(int*)calloc(WIDTH+1,sizeof(int));}
+		new[z][y] =(char*)calloc(WIDTH+1,sizeof(char));}
 return new;}
 
-void freemap(int*** map){
+void freemap(char*** map){
 for(int z=0; z<DEPTH; z++){
 	for(int y=0; y<HEIGHT; y++)
 		free(map[z][y]);

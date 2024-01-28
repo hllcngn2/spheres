@@ -7,7 +7,7 @@
 #define WIDTH	450
 #define RADIUS	20
 #define SPHERES_MARGIN	(RADIUS+40)
-#define HORIZON	70
+#define HORIZON	80
 #define SPHERES_COUNT	16
 
 #define K_QUIT	'1'
@@ -50,17 +50,17 @@ void drawdebug(vect3 pos,int facing);
 void make_colors(void);
 void test_colors(int**);
 
-int*** newmap(void);
-void freemap(int***);
+char*** newmap(void);
+void freemap(char***);
 
 int** newscreen(void);
 void freescreen(int**);
-void drawscreen(int** scr,int*** map,vect3 pos,int facing);
+void drawscreen(int** scr,char*** map,vect3 pos,int facing);
 void dispscreen(int**);
 
-void drawdot3dcircle(int ***map,int cp, vect3 center,vect3f a, vect3f b);
-vect3 drawrandomsphere(int ***map,int cp);
-void drawmanyspheres(int ***map,int n);
+void drawdot3dcircle(char ***map,int cp, vect3 center,vect3f a, vect3f b);
+vect3 drawrandomsphere(char ***map,int cp);
+void drawmanyspheres(char ***map,int n);
 
 void movement(char c,vect3* pos);
 void turn(char c,int *facing);

@@ -15,7 +15,7 @@ int** scr =newscreen();
 printw("\n\tDear darkmage,\n");getch();
 test_colors(scr);dispscreen(scr);mvprintw(1,2,"colors test");getch();
 
-int*** map =newmap();
+char*** map =newmap();
 drawmanyspheres(map,SPHERES_COUNT);
 
 vect3 pos =(vect3){WIDTH/2,HEIGHT/2,DEPTH/2};
